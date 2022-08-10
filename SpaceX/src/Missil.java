@@ -3,8 +3,10 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
-public class Missil {
+import Interfaces.Movel;
+import Interfaces.Visivel;
 
+public class Missil{
 	private Image image;
 	private int x, y, altura, largura;
 
@@ -53,5 +55,6 @@ public class Missil {
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, largura, altura);
 	}
+
 
 }

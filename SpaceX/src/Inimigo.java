@@ -1,85 +1,76 @@
 import java.awt.Image;
 import java.awt.Rectangle;
 
-import javax.swing.ImageIcon;
+import Interfaces.Colide;
+import Interfaces.Grafico;
+import Interfaces.Movel;
+import Interfaces.Visivel;
 
-public class Inimigo {
+public class Inimigo implements Visivel, Movel, Grafico, Colide{
 
-	private Image image;
-	private int x, y, altura, largura;
-
-
-	private boolean visivel;
-	
 	private static final int POSICAO_INICIAL = -30;
-	private static int VELOCIDADE = 0;
 	
+	private static int VELOCIDADE_X = 0;
+	private static int VELOCIDADE_Y = 2;
+	
+	private Movimento movimento;
+	private Visual visual;
+	private Visibilidade visibilidade;
 
+	
 	public Inimigo(int x, int y) {
-		this.x = x;
-		this.y = y;
-		
-		ImageIcon image_path = new ImageIcon("res\\inimigo.png");
-		this.image = image_path.getImage();
-		
-		this.altura  = image.getHeight(null);
-		this.largura = image.getWidth(null);
-		
-		visivel = true;
+		movimento = new Movimento(x, y, VELOCIDADE_X, VELOCIDADE_Y);
+		visual = new Visual("res\\inimigo.png");
+		visibilidade = new Visibilidade(true);
 	}
 
-	public void mexer() {
-		if (this.y > 780) {
-			this.y = POSICAO_INICIAL;
+	@Override
+	public void mover() {
+		if (this.movimento.getY() > 780) {
+			this.movimento.setY(POSICAO_INICIAL);
 		} else {
-			this.y += VELOCIDADE;
+			this.movimento.mover();
 		}
 	}
-	
-	public boolean isVisivel() {
-		return visivel;
+
+	@Override
+	public boolean getVisibilidade() {
+		return visibilidade.getVisibilidade();
 	}
 
-	public void setVisivel(boolean visivel) {
-		this.visivel = visivel;
+	@Override
+	public void setVisibilidade(boolean visibilidade) {
+		this.visibilidade.setVisibilidade(visibilidade);
 	}
 
-	public Image getImage() {
-		return image;
+	@Override
+	public void setX(int x) {
+		this.movimento.setX(x);
 	}
 
+	@Override
 	public int getX() {
-		return x;
+		return this.movimento.getX();
 	}
-	
+
+	@Override
+	public void setY(int y) {
+		this.movimento.setY(y);
+	}
+
+	@Override
 	public int getY() {
-		return y;
+		return this.movimento.getY();
 	}
 
-	public int getAltura() {
-		return altura;
+	@Override
+	public Image getVisual() {
+		return visual.getVisual();
 	}
 
-	public int getLargura() {
-		return largura;
-	}
-	
+	@Override
 	public Rectangle getBounds() {
-		Rectangle hitBox = new Rectangle(x, y, largura, altura);
-		return hitBox;
+		return new Rectangle(this.movimento.getX(), this.movimento.getY(), visual.getLargura(), visual.getAltura());
 	}
-	
-	public static void setVELOCIDADE(int velocidade) {
-		VELOCIDADE = velocidade;
-	}
-	
-	public static int getVELOCIDADE() {
-		return VELOCIDADE;
-	}
-	
-	public static void alterarVELOCIDADE(int velocidade) {
-		VELOCIDADE += velocidade;
-	}
-
 
 }

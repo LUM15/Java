@@ -23,7 +23,7 @@ public class Mapa extends JPanel implements ActionListener{
 	private Nave nave;
 	private Timer t;
 	
-	private int emJogo = 2;
+	private int emJogo = 0;
 	
 	private List<Inimigo> inimigos;
 	private int[][] posicoes = {
@@ -44,7 +44,7 @@ public class Mapa extends JPanel implements ActionListener{
 
 	public Mapa() {
 		setFocusable(true);
-		setDoubleBuffered(true);
+		setDoubleBuffered(false);
 		addKeyListener(new TecladoAdapter());
 		inicializaInimigos();
 		ImageIcon image_path = new ImageIcon("res\\fundo.png");
@@ -64,31 +64,51 @@ public class Mapa extends JPanel implements ActionListener{
 		}
 	}
 	
+
 	String placar = "Inimigos: ";
 	
 	public void paint(Graphics g) {
+		
 		Graphics2D graficos = (Graphics2D) g;
 		graficos.drawImage(fundo, 0, 0, null);
 
-		//Valida se o jogo não acabou
+		//0 == 'Intro'
 		if (emJogo == 0) {
+			
+			ImageIcon image_path = new ImageIcon("res\\intro.png");
+			intro = image_path.getImage();
+			graficos.drawImage(intro, 0, 0, null);
+			
+		//1 == 'Em Jogo'	
+		} else if (emJogo == 1) {
+			
 			graficos.drawImage(nave.getImage(), nave.getX(), nave.getY(), this);
+			
+			//Placar
 			graficos.setColor(Color.WHITE);
 			graficos.drawString(placar + inimigos.size(), 20, 20);
+			graficos.draw(nave.getBounds());
+			
 			//Inicializa misseis
 			List<Missil> misseis = nave.getMisseis();
 			for (int i = 0; i < misseis.size(); i++) {
 				Missil m = (Missil) misseis.get(i);
 				graficos.drawImage(m.getImage(), m.getX(), m.getY(), null);
+				graficos.setColor(Color.WHITE);
+				graficos.draw(m.getBounds());
 			}
 			
 			//Inicializa inimigos
 			for (int i = 0; i < inimigos.size(); i++) {
 				Inimigo in = (Inimigo) inimigos.get(i);
-				graficos.drawImage(in.getImage(), in.getX(), in.getY(), null);
+				graficos.drawImage(in.getVisual(), in.getX(), in.getY(), null);
+				graficos.setColor(Color.WHITE);
+				graficos.draw(in.getBounds());
 			}
+			
+		//2 == 'Derrota'
+		} else if (emJogo == 2) {
 
-		} else if (emJogo == 1) {
 			ImageIcon image_path = new ImageIcon("res\\sefudeu.png");
 			gameover = image_path.getImage();
 			graficos.drawImage(gameover, 0, 0, null);
@@ -96,11 +116,6 @@ public class Mapa extends JPanel implements ActionListener{
 			ImageIcon image_cat = new ImageIcon("res\\loser.gif");
 			gif = image_cat.getImage();
 			graficos.drawImage(gif, 130, 300, null);
-
-		} else if (emJogo == 2) {
-			ImageIcon image_path = new ImageIcon("res\\intro.png");
-			intro = image_path.getImage();
-			graficos.drawImage(intro, 0, 0, null);
 
 
 		} else {
@@ -115,7 +130,7 @@ public class Mapa extends JPanel implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
+		nave.mexer();   
 		List<Missil> misseis = nave.getMisseis();
 		
 		for (int i = 0; i < misseis.size(); i++) {
@@ -127,8 +142,8 @@ public class Mapa extends JPanel implements ActionListener{
 		}
 		
 		for (int i = 0; i < inimigos.size(); i++) {
-			if (inimigos.get(i).isVisivel()) {
-				inimigos.get(i).mexer();
+			if (inimigos.get(i).getVisibilidade()) {
+				inimigos.get(i).mover();
 			} else {
 				inimigos.remove(i);
 			}
@@ -136,7 +151,7 @@ public class Mapa extends JPanel implements ActionListener{
 		
 		if (inimigos.size() == 0) emJogo = 3;
 		
-		nave.mexer();
+
 		checarColisoes();
 		repaint();	
 	}
@@ -154,10 +169,11 @@ public class Mapa extends JPanel implements ActionListener{
 			for(int j = 0; j < inimigos.size(); j++) {
 				
 				hitBoxInimigo = inimigos.get(j).getBounds();
-				
+			
 				if (hitBoxMissil.intersects(hitBoxInimigo)) {
 					misseis.get(i).setVisivel(false);
-					inimigos.get(j).setVisivel(false);
+					inimigos.get(j).setVisibilidade(false);
+					
 				}
 			}	
 		}
@@ -168,8 +184,8 @@ public class Mapa extends JPanel implements ActionListener{
 			
 			if (hitBoxNave.intersects(hitBoxInimigo)) {
 				nave.setVisivel(false);
-				inimigos.get(i).setVisivel(false);
-				emJogo = 1;
+				inimigos.get(i).setVisibilidade(false);
+				emJogo = 2;
 			}
 		}
 	}
@@ -179,26 +195,19 @@ public class Mapa extends JPanel implements ActionListener{
 		
 		@Override
 		public void keyPressed(KeyEvent e) {
-			
-			if(e.getKeyCode() == e.VK_ADD) Inimigo.alterarVELOCIDADE(2);
-			if(e.getKeyCode() == e.VK_SUBTRACT) {
-				if (Inimigo.getVELOCIDADE() > 2) Inimigo.alterarVELOCIDADE(-2);
-			}
-			
 			if(e.getKeyCode() == e.VK_ENTER) {
-				emJogo = 0;
+				emJogo = 1;
 				nave = new Nave();
 				inicializaInimigos();
-				Inimigo.setVELOCIDADE(2);
 			}
 			nave.keyPressed(e);
 		}
+		
 		
 		@Override
 		public void keyReleased(KeyEvent e) {
 			nave.keyReleased(e);
 		}
-		
 	}
 	
 	
