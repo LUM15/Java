@@ -1,3 +1,4 @@
+package Composicao;
 
 public class Visibilidade {
 

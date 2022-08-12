@@ -1,3 +1,4 @@
+package Composicao;
 import Interfaces.Posicionado;
 
 public class Movimento implements Posicionado{
@@ -35,4 +36,12 @@ public class Movimento implements Posicionado{
 		this.y = y;
 	}
 	
+	public void setVelocidadeX(int velocidadeX) {
+		this.velocidadeX = velocidadeX;
+	}
+
+	public void setVelocidadeY(int velocidadeY) {
+		this.velocidadeY = velocidadeY;
+	}
+
 }

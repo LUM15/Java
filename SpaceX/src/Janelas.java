@@ -3,6 +3,8 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+import Entidades.Mapa;
+
 public class Janelas extends JFrame{
 
 	ImageIcon logo_path = new ImageIcon("res\\logo.png");
@@ -14,7 +16,6 @@ public class Janelas extends JFrame{
 		MenuJogo mr = new MenuJogo();
 		setJMenuBar(mr.getJmenubar());
 		add(new Mapa());
-		setVisible(true);
 		setTitle("SpaceX");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(500, 750);
