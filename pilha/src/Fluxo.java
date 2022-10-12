@@ -13,11 +13,11 @@ public class Fluxo {
 		//Executara esse bloco de codigo com cautela
 		try {
 			metodo2();
-		} catch (ArithmeticException e){
-			System.out.println("ArithmeticException");
+		} catch (ArithmeticException | NullPointerException e){
+			System.out.println("Exception " + e.getMessage());
+			e.printStackTrace();
 		}
 		System.out.println("Fim do metodo1");	
-		
 	}
 
 	private static void metodo2() {
@@ -25,6 +25,9 @@ public class Fluxo {
 		for (int i = 1; i <= 5; i++) {
 			System.out.println(i);
 			int a = i / 0;
+//			Conta c = null;
+//			c.deposita();
+//			
 		}
 		System.out.println("Fim do metodo2");	
 	}
