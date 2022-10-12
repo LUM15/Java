@@ -40,9 +40,9 @@ public class Nave extends Entidade implements Jogador{
 	public void keyPressed(KeyEvent ke) {
 		int codigo = ke.getKeyCode();
 
-		if (codigo == KeyEvent.VK_Z) {
-			this.atirar();
-		}
+//		if (codigo == KeyEvent.VK_Z) {
+//			this.atirar();
+//		}
 
 		switch (codigo) {
 		case KeyEvent.VK_Z:

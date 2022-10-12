@@ -85,7 +85,7 @@ public class Mapa extends JPanel implements ActionListener {
 				graficos.draw(m.getBounds());
 			}
 
-			// Inicializa inimigos
+			// Desenhar inimigos
 			for (int i = 0; i < gdi.getInimigos().size(); i++) {
 				Inimigo in = (Inimigo) gdi.getInimigos().get(i);
 				graficos.drawImage(in.getVisual(), in.getX(), in.getY(), null);
@@ -114,6 +114,11 @@ public class Mapa extends JPanel implements ActionListener {
 		graficos.dispose();
 	}
 
+	
+	
+	
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		nave.mover();
