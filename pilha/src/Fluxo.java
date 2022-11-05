@@ -6,7 +6,9 @@ public class Fluxo {
 		System.out.println("Ini do main");
 		try {
 		    metodo1();
-		} catch(ArithmeticException | NullPointerException | MinhaExcecao ex) {
+		   
+		    //Exception e generico, toda excecao(checked ou unchecked) ira ser capturada aqui!
+		} catch(Exception ex) {
 		    String msg = ex.getMessage();
 		    System.out.println("Exception " + msg);
 		    ex.printStackTrace();
