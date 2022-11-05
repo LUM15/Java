@@ -23,15 +23,16 @@ public abstract class Conta {
 	public abstract void deposita(double valor);
 	
 	
-	public void saca(double valor) {
+	public void saca(double valor) throws SaldoInsuficienteException{
 		if	(saldo < valor)	{
 			throw new SaldoInsuficienteException("Saldo insuficiente!");
 		}
 		this.saldo -= valor;
+		System.out.println("Saque realizado com sucesso!");
 	}
 	
 	
-	public void transferir(double valor, Conta conta_destino) {
+	public void transferir(double valor, Conta conta_destino) throws SaldoInsuficienteException{
 		//Checa se tem saldo suficiente na conta
 		this.saca(valor);
 		//Essa parte so sera executada se a SaldoInsulficienteException() nao for lancada
