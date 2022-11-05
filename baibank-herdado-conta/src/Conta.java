@@ -23,25 +23,19 @@ public abstract class Conta {
 	public abstract void deposita(double valor);
 	
 	
-	public boolean saca(double valor)	{
-		if	(saldo >= valor)	{
-			this.saldo -= valor;
-			return true;	
-		}	else	{	
-			return false;
-		}	
+	public void saca(double valor) {
+		if	(saldo < valor)	{
+			throw new SaldoInsuficienteException("Saldo insuficiente!");
+		}
+		this.saldo -= valor;
 	}
 	
 	
-	public boolean transferir(double valor, Conta conta_destino) {
-		//valida se o valor a ser transferido e maior do que o saldo na conta
-		if (this.saldo >= valor)	{
-			this.saca(valor);	//retira o valor da conta de origen
-			conta_destino.deposita(valor);	//deposita o valor na conte de destino
-			return true;
-		}	
-		
-		return false;
+	public void transferir(double valor, Conta conta_destino) {
+		//Checa se tem saldo suficiente na conta
+		this.saca(valor);
+		//Essa parte so sera executada se a SaldoInsulficienteException() nao for lancada
+		conta_destino.deposita(valor);
 	}	
 	
 	
