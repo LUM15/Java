@@ -1,24 +1,28 @@
 
 public class TestaConexao {
 
-	public static void main(String[] args) {
-
-		Conexao c = null;
+	public static void main(String[] args) {		
 		
-		try {
-			//Tenta estabelecer uma conexao com o servidor
-			c = new Conexao();
-			c.leDados();
-			
+	/*---------------- Forma antiga e confusa	
+	    Conexao con = null;
+	    try {
+	        con = new Conexao();
+	        con.leDados();
+	    } catch(IllegalStateException ex) {
+	        System.out.println("Deu erro na conexao");
+	    } finally {
+	        System.out.println("finally");
+	        if(con != null) {
+	            con.fecha();
+	        }
+	    }
+	 */
+		// Mesma coisa que o try com Finally
+		try(Conexao conexao = new Conexao())	{
+			conexao.leDados();
 		} catch (Exception e) {
-			//Caso a conexao seja mal sucedida 
-			System.out.println("Erro ao tentar realizar a coneção com o servidor.");
-			
-		} finally {
-			//Sempre sera executado
-			c.fecha();
+			System.out.println("Conexão não estabelecida");	
 		}
 		
 	}
-
 }
