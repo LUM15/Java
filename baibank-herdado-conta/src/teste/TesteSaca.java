@@ -1,9 +1,10 @@
+package teste;
 
 public class TesteSaca {
 
 	public static void main(String[] args) {
 
-		Conta conta1 = new ContaCorrente(123, 321);
+		modelo.Conta conta1 = new modelo.ContaCorrente(123, 321);
 
 		conta1.deposita(100);
 
@@ -19,7 +20,7 @@ public class TesteSaca {
 
 		try {
 			conta1.saca(99);
-		} catch (SaldoInsuficienteException e) {
+		} catch (modelo.SaldoInsuficienteException e) {
 			System.out.println(e.getMessage());
 		}
 

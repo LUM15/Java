@@ -1,15 +1,16 @@
+package teste;
 
 public class TestaTributavel {
 
 	public static void main(String[] args) {
 		
-		ContaCorrente cc = new ContaCorrente(1, 2);
+		modelo.ContaCorrente cc = new modelo.ContaCorrente(1, 2);
 		cc.deposita(50.0);
 		
-		SeguroDeVida sv = new SeguroDeVida();
+		modelo.SeguroDeVida sv = new modelo.SeguroDeVida();
 		sv.setValorSeguro(1500.0);
 		
-		CalculadorImposto ci = new CalculadorImposto();
+		modelo.CalculadorImposto ci = new modelo.CalculadorImposto();
 		ci.calcularImposto(sv);
 		ci.calcularImposto(cc);
 		

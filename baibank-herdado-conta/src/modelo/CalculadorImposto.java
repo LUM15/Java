@@ -1,4 +1,6 @@
+package modelo;
 
+//modelo.CalculadorImposto => Full Qualified Name(FQN)
 public class CalculadorImposto {
 
 	private static double valorImposto;
