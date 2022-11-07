@@ -1,4 +1,4 @@
-package modelo;
+package br.com.baibank.banco.modelo;
 
 //modelo.CalculadorImposto => Full Qualified Name(FQN)
 public class CalculadorImposto {

@@ -1,10 +1,12 @@
-package teste;
+package br.com.baibank.banco.teste;
+
+import br.com.baibank.banco.modelo.*;
 
 public class TesteSaca {
 
 	public static void main(String[] args) {
 
-		modelo.Conta conta1 = new modelo.ContaCorrente(123, 321);
+		Conta conta1 = new ContaCorrente(123, 321);
 
 		conta1.deposita(100);
 
@@ -20,7 +22,7 @@ public class TesteSaca {
 
 		try {
 			conta1.saca(99);
-		} catch (modelo.SaldoInsuficienteException e) {
+		} catch (SaldoInsuficienteException e) {
 			System.out.println(e.getMessage());
 		}
 
