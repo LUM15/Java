@@ -1,4 +1,4 @@
-package modelo;
+package br.com.baibank.banco.modelo;
 
 public interface Tributavel {
 
