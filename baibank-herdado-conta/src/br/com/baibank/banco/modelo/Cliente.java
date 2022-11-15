@@ -1,5 +1,15 @@
 package br.com.baibank.banco.modelo;
 
+/**
+ * Classe que representa um cliente no BaiBank
+ * 
+ * @author Luis Miguel
+ * @version 0.1
+ * 
+ */
+
+
+
 public class Cliente {
 
 	private String nome;
