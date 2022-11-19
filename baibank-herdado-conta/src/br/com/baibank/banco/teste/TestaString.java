@@ -6,17 +6,41 @@ public class TestaString {
 		// Boa pratica
 		String nome = "Luís";
 
-		// String sobrenome = new String ("Miguel");
+		// Nao se faz
+//		String nome = new String("Luís");
+		
+		// Testes dos metodos da classe String
+		int teste = nome.length();
+		
+		for (int i = 0; i < nome.length(); i++) {
+			
+			System.out.println(nome.charAt(i));
+			
+		}
+		
+//		String teste = nome.substring(2);
+		
+//		String teste = nome.replace("í", "i");
 
-		// Econtra o primeiro char e substitui pelo segundo
-		String nomeNovo = nome.replace("í", "i");
+//		String teste = nome.toUpperCase();		
 
-		String nomeMaiusculo = nome.toUpperCase();
+//		char teste = nome.charAt(3);
+		
+//		int teste = nome.indexOf("u");
 
-		// String sao imutaveis no java
-		System.out.println(nome);
-		System.out.println(nomeNovo);
-		System.out.println(nomeMaiusculo);
+		System.out.println(teste);
+
+		String teste2 = "   Teste ";
+		String teste2SemEspacos = teste2.trim();
+		
+		System.out.println(teste2);
+		System.out.println(teste2SemEspacos);
+		System.out.println("Tem Tes? " + teste2.contains("Tes"));
+		
+		String teste3 = " ";
+		String teste3Vazio = teste3.trim();
+		
+		System.out.println("Vazio? " + teste3Vazio.isEmpty());
 		
 		// Filtro palavrao
 		String fraseComPalavrao = "Vai se Fuder";
