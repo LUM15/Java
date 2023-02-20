@@ -37,4 +37,10 @@ public class ContaCorrente extends Conta implements Tributavel {
 	public double getValorImposto() {
 		return this.taxaPercentual * this.saldo;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Conta Corrente " + super.toString();
+	}
 }

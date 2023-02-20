@@ -116,6 +116,13 @@ public abstract class Conta {
 		
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "\nAgencia: " + this.getAgencia() +
+				"\nConta: " + this.getNumero() + 
+				"\nTitular: " + this.getTitular();
+	}
 	
 }
 
