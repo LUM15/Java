@@ -50,8 +50,8 @@ public class Teste {
 		System.out.println("--------------------------------------------");
 		
 		//for novo
-		for(Object o : lista) {
-			System.out.println(o + "\n");
+		for(Conta conta : lista) {
+			System.out.println(conta + "\n");
 		}
 	}
 
