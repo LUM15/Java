@@ -10,7 +10,7 @@ public class Teste {
 
 	public static void main(String[] args) {
 	
-		ArrayList lista = new ArrayList();
+		ArrayList<Conta> lista = new ArrayList<Conta>();
 		
 		//Clientes
 		Cliente cliente00 = new Cliente("Heloise Sandra da Rosa", "770.707.020-86");
@@ -32,7 +32,9 @@ public class Teste {
 		
 		System.out.println("Tamanho: " + lista.size());
 		
-		Conta ref = (Conta) lista.get(0);
+		//Não preciso fazer o casting já que na inicialização
+		//estabeleci que nessa lista tem somente tipo conta
+		Conta ref = lista.get(0);
 		
 		System.out.println(ref.toString());
 		
