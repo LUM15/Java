@@ -8,9 +8,11 @@ public class TesteObject {
 
 	public static void main(String[] args) {
 		
-		ContaCorrente cc = new ContaCorrente(55, 66);
-		Object cp = new ContaPoupanca(66, 77);
-		Object cliente = new Cliente();
+		Cliente cliente01 = new Cliente("Sebastião Enrico de Paula", "561.188.376-19");
+		ContaCorrente cc = new ContaCorrente(55, 66, cliente01);
+		
+		Cliente cliente02 = new Cliente("Sueli Tereza da Mata", "818.259.081-76");
+		ContaPoupanca cp = new ContaPoupanca(66, 77, cliente02);
 		
 		System.out.println(cc.toString());
 		System.out.println(cp);

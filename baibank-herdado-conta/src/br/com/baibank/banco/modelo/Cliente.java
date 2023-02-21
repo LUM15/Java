@@ -9,13 +9,16 @@ package br.com.baibank.banco.modelo;
  */
 
 
-
 public class Cliente {
 
 	private String nome;
 	private String cpf;
 	private String profissao;
 	
+	public Cliente(String nome, String cpf) {
+		this.nome = nome;
+		this.cpf = cpf;	
+	}
 	
 	public String getNome() {
 		return nome;

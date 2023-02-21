@@ -1,6 +1,6 @@
 package br.com.baibank.banco.teste;
 
-public class TesteUtil {
+public class TesteArrayPrimitivos {
 
 	//[] = Array
 	public static void main(String[] args) {

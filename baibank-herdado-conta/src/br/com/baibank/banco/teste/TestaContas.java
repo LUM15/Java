@@ -6,10 +6,12 @@ public class TestaContas {
 
 	public static void main(String[] args) {
 		//Full Qualified Name => FQN
-		ContaCorrente cc1 = new ContaCorrente(111, 222);
+		Cliente cliente04 = new Cliente("Stella Isadora da Silva", "817.984.388-28");
+		ContaCorrente cc1 = new ContaCorrente(111, 222, cliente04);
 		cc1.deposita(100.0);
-			
-		ContaPoupanca cp1 = new ContaPoupanca(111, 333);
+		
+		Cliente cliente02 = new Cliente("Rita Alice Alessandra Aragão", "387.431.161-91");	
+		ContaPoupanca cp1 = new ContaPoupanca(111, 333, cliente02);
 		cp1.deposita(200.0);
 			
 		try {

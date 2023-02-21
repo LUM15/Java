@@ -23,10 +23,12 @@ public abstract class Conta {
 	 * @param numero
 	 */
 	
-	public Conta(int agencia, int numero) { 
+	public Conta(int agencia, int numero, Cliente titular) { 
 		Conta.quantidade++; 
 		this.agencia =  agencia;
 		this.numero = numero;
+		this.titular = titular;
+		
 	}
 	 
 	
@@ -121,7 +123,7 @@ public abstract class Conta {
 		// TODO Auto-generated method stub
 		return "\nAgencia: " + this.getAgencia() +
 				"\nConta: " + this.getNumero() + 
-				"\nTitular: " + this.getTitular();
+				"\nTitular: " + this.getTitular().getNome();
 	}
 	
 }

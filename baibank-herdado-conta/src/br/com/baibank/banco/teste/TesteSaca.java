@@ -6,7 +6,8 @@ public class TesteSaca {
 
 	public static void main(String[] args) {
 
-		Conta conta1 = new ContaCorrente(123, 321);
+		Cliente cliente01 = new Cliente("Eloá Amanda Araújo", "861.415.648-01");
+		Conta conta1 = new ContaCorrente(123, 321, cliente01);
 
 		conta1.deposita(100);
 

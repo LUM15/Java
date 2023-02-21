@@ -1,0 +1,10 @@
+		
+		
+		
+		
+		
+		Cliente cliente00 = new Cliente("Heloise Sandra da Rosa", "770.707.020-86");
+		Cliente cliente01 = new Cliente("Eloá Amanda Araújo", "861.415.648-01");
+		Cliente cliente02 = new Cliente("Rita Alice Alessandra Aragão", "387.431.161-91");
+		Cliente cliente03 = new Cliente("Márcia Valentina Rita dos Santos", "379.648.807-21");
+		Cliente cliente04 = new Cliente("Stella Isadora da Silva", "817.984.388-28");

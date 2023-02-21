@@ -14,12 +14,12 @@ public class ContaCorrente extends Conta implements Tributavel {
 //		super.numero = numero;
 //	}
 
-	public ContaCorrente(int agencia, int numero) {
+	public ContaCorrente(int agencia, int numero, Cliente titular) {
 //		Apenas a classe mae consegue acessar os atributos
 //		sendo assim aqui eu solicito que a Class Conta
 //		inicialize o obejto do tipo Conta recebendo
 //		agencia e numero
-		super(agencia, numero);
+		super(agencia, numero, titular);
 	}
 
 	@Override

@@ -6,7 +6,8 @@ public class TestaTributavel {
 
 	public static void main(String[] args) {
 		
-		ContaCorrente cc = new ContaCorrente(1, 2);
+		Cliente cliente01 = new Cliente("Eloá Amanda Araújo", "861.415.648-01");
+		ContaCorrente cc = new ContaCorrente(1, 2, cliente01);
 		cc.deposita(50.0);
 		
 		SeguroDeVida sv = new SeguroDeVida();
