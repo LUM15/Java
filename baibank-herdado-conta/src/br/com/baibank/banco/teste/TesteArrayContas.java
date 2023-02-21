@@ -21,7 +21,7 @@ public class TesteArrayContas {
 		
 		//Adicioando contas em guardador
 		guardador.adiciona(conta00);
-		guardador.adiciona(conta00);
+		guardador.adiciona(conta01);
 		
 		int tamanho = guardador.getQuantidadeDeElementos();
 		
