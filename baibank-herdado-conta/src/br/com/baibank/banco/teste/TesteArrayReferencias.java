@@ -32,6 +32,11 @@ public class TesteArrayReferencias {
 		ContaCorrente cc5 = new ContaCorrente(66, 374, cliente04);
 		contas[4] = cc5;
 		
+		//Run Time Exception: só funciona porque conheço o tipo de objeto que 
+		//fica naquela posição do array, se alterar o tipo irá dar erro durante a execução.
+		ContaCorrente ref = (ContaCorrente) contas[0];
+		System.out.println(ref.getNumero() + "\n");
+		
 		for (int i = 0; i < contas.length; i++) {
 			
 			System.out.println(contas[i].toString() + "\n");

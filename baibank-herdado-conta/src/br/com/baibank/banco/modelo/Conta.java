@@ -17,10 +17,11 @@ public abstract class Conta {
 	private static int quantidade;
 	
 	/**
-	 * Construtor para inicializar o objeto Conta a partir da agencia e numero.
-	 * 
+	 * Construtor para inicializar o objeto Conta a partir da agencia e numero e
+	 * Cliente.
 	 * @param agencia
 	 * @param numero
+	 * @param Cliente
 	 */
 	
 	public Conta(int agencia, int numero, Cliente titular) { 
