@@ -4,7 +4,7 @@ import br.com.baibank.banco.modelo.Cliente;
 import br.com.baibank.banco.modelo.ContaCorrente;
 import br.com.baibank.banco.modelo.ContaPoupanca;
 
-public class Teste {
+public class TesteObject {
 
 	public static void main(String[] args) {
 		
